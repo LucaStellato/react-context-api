@@ -6,16 +6,19 @@ import ChiSiamo from './pages/ChiSiamo'
 import DefaultLayout from './pages/DefaultLayout'
 import Prodotti from './pages/prodotti'
 import SingleProduct from './pages/SingleProduct'
-import BudgetContext from './pages/contexts/BudgetContext'
+import BudgetContext from './contexts/BudgetContext'
+import { useState } from 'react'
 
 
 
 function App() {
 
-
+  const [budgetMode, setBudgetMode] = useState(false)
   return (
     <>
-      <BudgetContext.Provider value={{}}>
+      <BudgetContext.Provider value={{
+        name: 'Luca'
+      }}>
         <BrowserRouter>
           <Routes>
             <Route element={<DefaultLayout />}>

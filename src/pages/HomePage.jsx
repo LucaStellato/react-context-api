@@ -1,7 +1,11 @@
 import jmb from '../assets/jmb.png'
+import { useContext } from 'react'
+import BudgetContext from '../contexts/BudgetContext'
 export default function HomePageLayout() {
+    const { name } = useContext(BudgetContext)
     return (
         <>
+            <div>{name}</div>
             <main className='' style={{}}>
                 <div className='d-flex mt-4'>
                     <div>
