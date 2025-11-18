@@ -11,7 +11,9 @@ export default function Prodotti() {
     useEffect(fetchProducts, [])
     function fetchProducts() {
         axios.get(endpoint).then(response => {
-
+            if (budgetMode == true) {
+                setProducts = response.data.filter((p) => p.price <= 30)
+            }
             setProducts(response.data)
         })
     }
