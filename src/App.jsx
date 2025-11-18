@@ -7,17 +7,19 @@ import DefaultLayout from './pages/DefaultLayout'
 import Prodotti from './pages/prodotti'
 import SingleProduct from './pages/SingleProduct'
 import BudgetContext from './contexts/BudgetContext'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+
 
 
 
 function App() {
 
   const [budgetMode, setBudgetMode] = useState(false)
+
   return (
     <>
       <BudgetContext.Provider value={{
-        name: 'Luca'
+        budgetMode, setBudgetMode
       }}>
         <BrowserRouter>
           <Routes>
