@@ -2,17 +2,20 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import axios from 'axios'
+import { useContext } from 'react';
+import BudgetContext from '../contexts/BudgetContext';
 
 
 
 export default function Prodotti() {
+    const { budgetMode, setBudgetMode } = useContext(BudgetContext)
     const [products, setProducts] = useState([]);
     const endpoint = 'https://fakestoreapi.com/products'
-    useEffect(fetchProducts, [])
+    useEffect(fetchProducts, [budgetMode])
     function fetchProducts() {
         axios.get(endpoint).then(response => {
             if (budgetMode == true) {
-                setProducts = response.data.filter((p) => p.price <= 30)
+                setProducts(response.data.filter((p) => p.price <= 30))
             } else {
                 setProducts(response.data)
             }
