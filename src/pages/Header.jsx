@@ -1,7 +1,19 @@
 import { NavLink } from "react-router-dom";
 import logo from "../assets/logos2.png"
-
+import { useContext, useState } from 'react'
+import BudgetContext from '../contexts/BudgetContext'
 export default function Header() {
+    const { budgetMode, setBudgetMode } = useContext(BudgetContext)
+
+    function HandleClick() {
+        if (budgetMode == true) {
+            setBudgetMode(false)
+        } else {
+            setBudgetMode(true)
+        }
+
+    }
+
     return (
 
         <header>
@@ -24,6 +36,7 @@ export default function Header() {
                                 <NavLink to='/prodotti' className="nav-link">Prodotti</NavLink>
                             </li>
                         </ul>
+                        <button onClick={HandleClick}>mode budget active</button>
                     </div>
                 </div>
             </nav>

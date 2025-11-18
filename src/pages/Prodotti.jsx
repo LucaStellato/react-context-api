@@ -11,6 +11,7 @@ export default function Prodotti() {
     useEffect(fetchProducts, [])
     function fetchProducts() {
         axios.get(endpoint).then(response => {
+
             setProducts(response.data)
         })
     }
