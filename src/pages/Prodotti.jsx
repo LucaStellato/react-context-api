@@ -13,8 +13,9 @@ export default function Prodotti() {
         axios.get(endpoint).then(response => {
             if (budgetMode == true) {
                 setProducts = response.data.filter((p) => p.price <= 30)
+            } else {
+                setProducts(response.data)
             }
-            setProducts(response.data)
         })
     }
     return (
