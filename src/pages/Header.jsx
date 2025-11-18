@@ -6,11 +6,7 @@ export default function Header() {
     const { budgetMode, setBudgetMode } = useContext(BudgetContext)
 
     function HandleClick() {
-        if (budgetMode == true) {
-            setBudgetMode(false)
-        } else {
-            setBudgetMode(true)
-        }
+        setBudgetMode(!budgetMode)
 
     }
 
@@ -36,7 +32,7 @@ export default function Header() {
                                 <NavLink to='/prodotti' className="nav-link">Prodotti</NavLink>
                             </li>
                         </ul>
-                        <button onClick={HandleClick}>mode budget active</button>
+                        <button onClick={HandleClick}>{budgetMode ? "Mode Budget Active" : "Mode Budget Disactive"}</button>
                     </div>
                 </div>
             </nav>
